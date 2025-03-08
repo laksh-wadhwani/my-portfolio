@@ -1,0 +1,79 @@
+.project-section{
+    margin-top: 7rem;
+    height: auto
+}
+
+.project-information{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.name-site{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.name-site > h1{
+    letter-spacing: -.3rem;
+    text-shadow: 0 9px 20px #ffffff1f;
+    font-size: xxx-large;
+}
+
+.name-site > button{
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .5rem;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 0.4rem;
+    filter: invert(100);
+}
+
+.name-site > button:hover{
+    transform: scale(1.03); 
+}
+
+.project-description{
+    font-size: x-large;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: -.1rem;
+    text-align: justify;
+}
+
+.tech-stack{
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    flex-flow: wrap;
+}
+
+.tech-stack > button{
+    text-align: center;
+    border: 1.3px solid #1d1d1d;
+    background-color: transparent;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    color: #fff;
+    border-width: 1px;
+    border-color: #fff;
+    font-size: medium;
+    font-weight: 300;
+}
+
+.project-display{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.project-display > img{
+    width: 100%;
+}

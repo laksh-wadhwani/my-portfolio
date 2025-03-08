@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
+
+h1,h2,h3,h4,p,span{
+    margin: 0;
+    padding: 0;
+}
+
+.greetings{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: auto;
+    font-size: xxx-large;
+}
+
+.main-box{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10rem;
+    padding-bottom: 5rem;
+}
+
+.hero-section{
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-image: url("../assets/main-picture.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: left;
+    background-color: #1a1a1a;
+    background-blend-mode: lighten;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #DAC5A7;
+    text-align: center;
+    font-size: xx-large;
+    font-family: "Atkinson Hyperlegible Mono", serif;
+    font-weight: 200;
+
+}
+
+.hero-section>h1{
+    font-size: 6rem;
+}
+
+.hero-section>p{
+    font-size: x-large;
+}
+
+.section{
+    width: 80%;
+    height: auto;
+    background-color: #1a1a1a;
+    padding: 6rem 3rem;
+    box-sizing: border-box;
+    display: flex;
+    font-family: "Oxygen";
+    border-radius: 5px;
+}
+
+.sections-1{
+    align-items: center;
+    gap: 4rem;
+    border-radius: 2rem 2rem 0 0;
+    font-size: 2.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.sections-1 > p{
+    width: 50%;
+}
+
+.sections-1 p:nth-of-type(2){
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.sections-2{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+    font-size: medium;
+    gap: 1.5rem;
+}
+
+.sections-2 > div > h2{
+    font-size: x-large;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #DAC5A7;
+    display: inline;
+}
+
+.skills{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.skills > div{
+    width: 23%;
+    height: 13.125rem;
+    background-color: rgba(218, 197, 167, 0.05);
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    border-radius: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    font-size: larger;
+    text-transform: capitalize;
+    line-height: 150%;
+    letter-spacing: 1px;
+    font-weight: 500;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+}
+
+.skills > div:hover{
+    background-color: #DAC5A7;
+    color: black;
+    transform: scale(1.02);
+}
+
+.skills > div:hover img{
+    filter: brightness(0);
+}
+
+.skills > div > img{
+    width: 60px;
+    height: 60px;
+    align-self: flex-end;
+}
+
+.sections-3{
+    min-height: 95vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
+
+.sections-3>h2{
+    font-weight: 800;
+    font-size: 6rem;
+    letter-spacing: -.3rem;
+    word-spacing: -1rem;
+    text-transform: uppercase;
+    text-shadow: 10px 10px 20px #ffffff26;
+    text-align: center;
+    position: sticky;
+    top: 0%;
+}
+
+.sections-3 > .projects{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.sections-3 > .projects::-webkit-scrollbar{ height: 0; }
+
+.project-card{
+    width: 70%;
+    height: 80vh;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 7rem;
+}
+
+
+.project-card:hover{
+    transform: scale(1.01);
+}
+
+.project-card > div{
+    width: 100%;
+    height: 15%;
+    background-color: #353535;
+    border-bottom: .4px solid #353535;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    display: flex;
+    box-sizing: border-box;
+    border-radius: 1rem 1rem 0 0;
+    letter-spacing: -.07rem;
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.project-card > div > button{
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .5rem;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 0.4rem;
+    filter: invert(100);
+}
+
+.project-card > div > button:hover{
+    transform: scale(1.02);
+}
+
+.project-card > img{
+    width: 100%;
+    height: 85%;
+    object-fit: cover;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.sections-4{
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 2rem 2rem;
+    font-size: 6rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -.3rem;
+    font-weight: 800;
+}
+
+.contact{
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+}
+
+.contact > img{
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: all 0.5s ease;
+}
+
+.contact > img:hover{
+    transform: scale(1.05);
+}
+
+/* For Large Screens (Desktops) */
+@media screen and (min-width: 1200px) {
+    .main-box {
+        gap: 8rem;
+    }
+}
+
+/* For Medium Screens (Tablets, Small Laptops) */
+@media screen and (max-width: 1199px) {
+    .hero-section > h1 {
+        font-size: 4rem;
+    }
+    .hero-section > p {
+        font-size: large;
+    }
+    .section-1 > p {
+        width: 70%;
+    }
+    .skills {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .skills > div {
+        width: 45%;
+        margin-bottom: 1rem;
+    }
+    .project-card {
+        width: 85%;
+    }
+}
+
+/* For Small Screens (Mobile Phones) */
+@media screen and (max-width: 768px) {
+    .hero-section {
+        background-size: cover;
+        padding: 2rem;
+    }
+    .hero-section > h1 {
+        font-size: 3rem;
+    }
+    .hero-section > p {
+        font-size: medium;
+    }
+    .section {
+        width: 90%;
+        padding: 4rem 2rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .section-1 > p {
+        width: 100%;
+    }
+    .skills > div {
+        width: 100%;
+    }
+    .section-3 > h2 {
+        font-size: 4rem;
+    }
+    .project-card {
+        width: 100%;
+    }
+}
+
+/* For Extra Small Screens (Very Small Phones) */
+@media screen and (max-width: 480px) {
+    .hero-section {
+        padding: 1rem;
+    }
+    .hero-section > h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section > p {
+        font-size: small;
+    }
+    .section {
+        padding: 3rem 1.5rem;
+    }
+    .skills > div {
+        width: 100%;
+        font-size: medium;
+    }
+    .section-3 > h2 {
+        font-size: 3rem;
+    }
+    .section-4 {
+        font-size: 4rem;
+    }
+}

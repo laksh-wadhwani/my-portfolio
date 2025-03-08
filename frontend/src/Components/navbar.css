@@ -1,0 +1,76 @@
+.navbar{
+    width: 80%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 1.25rem;
+    left: 9.5rem;
+    z-index: 1000;
+    padding: 0 1rem;
+}
+
+.navbar div {
+    display: flex;
+    align-items: center;
+    background-color: #2b2b2b;
+    border-radius: .4rem;
+    padding: .5rem;
+    width: fit-content;
+    gap: 0.45rem;
+    transition: all 0.5s ease;
+}
+
+.navbar > div > img {
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: fill;
+    border-radius: 50%;
+    filter: grayscale();
+}
+
+.navbar > div > span{
+    font-family: auto;
+    font-size: larger;
+    display: none;
+}
+
+.navbar > div:hover span{
+    display: block;
+}
+
+.navbar > div:hover img{
+    filter: none;
+}
+
+.navbar > div > span:hover{
+    color: #DAC5A7;
+    cursor: pointer;
+}
+
+.navbar > button{
+    padding: .5rem;
+    background-color: transparent;
+    border: 1.5px solid white;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar > button:hover{
+    transform: scale(1.05);
+    border-color: #DAC5A7;
+}
+
+.navbar > button:hover img{
+    filter: none;
+}
+
+.navbar > button > img{
+    filter: grayscale(100%) brightness(100%);
+    transition: all 0.5s ease;
+}
