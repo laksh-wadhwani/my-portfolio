@@ -23,6 +23,7 @@ h1,h2,h3,h4,p,span{
     align-items: center;
     gap: 10rem;
     padding-bottom: 5rem;
+    flex-wrap: wrap;
 }
 
 .hero-section{
@@ -252,92 +253,71 @@ h1,h2,h3,h4,p,span{
     transform: scale(1.05);
 }
 
-/* For Large Screens (Desktops) */
-@media screen and (min-width: 1200px) {
-    .main-box {
-        gap: 8rem;
+@media (max-width: 1100px)  {
+    .hero-section{
+        background-size: contain;
     }
-}
 
-/* For Medium Screens (Tablets, Small Laptops) */
-@media screen and (max-width: 1199px) {
-    .hero-section > h1 {
-        font-size: 4rem;
-    }
-    .hero-section > p {
+    .hero-section>p{
         font-size: large;
     }
-    .section-1 > p {
-        width: 70%;
-    }
-    .skills {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .skills > div {
-        width: 45%;
-        margin-bottom: 1rem;
-    }
-    .project-card {
-        width: 85%;
+
+    .hero-section > h1{
+        font-size: 5rem;
     }
 }
 
-/* For Small Screens (Mobile Phones) */
-@media screen and (max-width: 768px) {
-    .hero-section {
+
+@media (max-width: 860px){
+    .hero-section{
         background-size: cover;
-        padding: 2rem;
     }
-    .hero-section > h1 {
-        font-size: 3rem;
-    }
-    .hero-section > p {
-        font-size: medium;
-    }
-    .section {
-        width: 90%;
-        padding: 4rem 2rem;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .section-1 > p {
-        width: 100%;
-    }
-    .skills > div {
-        width: 100%;
-    }
-    .section-3 > h2 {
+
+    .hero-section > h1{
         font-size: 4rem;
     }
-    .project-card {
-        width: 100%;
+
+    .hero-section > p{
+        font-size: medium;
     }
 }
 
-/* For Extra Small Screens (Very Small Phones) */
-@media screen and (max-width: 480px) {
-    .hero-section {
-        padding: 1rem;
+@media (max-width: 610px){
+    .hero-section{
+        font-size: x-large;
     }
-    .hero-section > h1 {
+
+    .hero-section > h1{
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 550px){
+    .hero-section > h1{
         font-size: 2.5rem;
     }
-    .hero-section > p {
+
+    .hero-section > p{
         font-size: small;
     }
-    .section {
-        padding: 3rem 1.5rem;
+}
+
+@media (max-width: 460px){
+    .hero-section > p{
+        font-size: x-small;
     }
-    .skills > div {
-        width: 100%;
-        font-size: medium;
+}
+
+@media (max-width: 380px){
+    .hero-section{
+        font-size: large;
     }
-    .section-3 > h2 {
-        font-size: 3rem;
+
+    .hero-section > h1{
+        font-size: 1.5rem;
     }
-    .section-4 {
-        font-size: 4rem;
+
+    .hero-section > p{
+        font-size: xx-small;
     }
 }
