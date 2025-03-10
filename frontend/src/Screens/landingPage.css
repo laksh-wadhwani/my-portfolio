@@ -297,6 +297,10 @@ h1,h2,h3,h4,p,span{
     .project-card{
         width: 90%;
     }
+
+    .sections-4{
+        font-size: 5rem;
+    }
 }
 
 
@@ -327,6 +331,10 @@ h1,h2,h3,h4,p,span{
 
     .sections-3 > h2{
         font-size: 4.9rem;
+    }
+
+    .sections-4{
+        font-size: 4.5rem;
     }
 }
 
@@ -364,6 +372,10 @@ h1,h2,h3,h4,p,span{
 
     .project-card{
         width: 100%;
+    }
+
+    .sections-4{
+        font-size: 4rem;
     }
 }
 
@@ -403,6 +415,10 @@ h1,h2,h3,h4,p,span{
         font-size: 3.9rem;
         top: 2rem;
     }
+
+    .sections-4{
+        font-size: 3.5rem;
+    }
 }
 
 @media (max-width: 550px){
@@ -425,6 +441,11 @@ h1,h2,h3,h4,p,span{
     .sections-3 > h2{
         font-size: 3.2rem;
         top: 3rem;
+    }
+
+    .sections-4{
+        font-size: 2.5rem;
+        letter-spacing: 0;
     }
 }
 
@@ -460,6 +481,10 @@ h1,h2,h3,h4,p,span{
         width: 130%;
         height: 70vh;
     }
+
+    .sections-4{
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 380px){
@@ -486,5 +511,14 @@ h1,h2,h3,h4,p,span{
     .sections-3 > h2{
         font-size: 1.5rem;
         word-spacing: 0;
+    }
+
+    .sections-4{
+        font-size: 1.5rem;
+    }
+
+    .contact > img{
+        width: 2rem;
+        height: 2rem;
     }
 }
