@@ -163,7 +163,7 @@ h1,h2,h3,h4,p,span{
     text-shadow: 10px 10px 20px #ffffff26;
     text-align: center;
     position: sticky;
-    top: 0%;
+    top: 1rem;
 }
 
 .sections-3 > .projects{
@@ -289,6 +289,14 @@ h1,h2,h3,h4,p,span{
     .skills > div{
         width: 16rem;
     }
+
+    .sections-3 > h2{
+        font-size: 5.6rem;
+    }
+
+    .project-card{
+        width: 90%;
+    }
 }
 
 
@@ -316,11 +324,19 @@ h1,h2,h3,h4,p,span{
     .skills > div{
         width: 15rem;
     }
+
+    .sections-3 > h2{
+        font-size: 4.9rem;
+    }
 }
 
 @media (max-width: 760px){
     .skills > div{
         width: 14.3rem;
+    }
+
+    .sections-3 > h2{
+        font-size: 4.6rem;
     }
 }
 
@@ -340,6 +356,14 @@ h1,h2,h3,h4,p,span{
 
     .skills > div{
         width: 13.4rem;
+    }
+
+    .sections-3 > h2{
+        font-size: 4.4rem
+    }
+
+    .project-card{
+        width: 100%;
     }
 }
 
@@ -374,6 +398,11 @@ h1,h2,h3,h4,p,span{
     .skills > div{
         width: 16rem;
     }
+
+    .sections-3 > h2{
+        font-size: 3.9rem;
+        top: 2rem;
+    }
 }
 
 @media (max-width: 550px){
@@ -392,6 +421,11 @@ h1,h2,h3,h4,p,span{
     .sections-2 > div > p{
         font-size: smaller;
     }
+
+    .sections-3 > h2{
+        font-size: 3.2rem;
+        top: 3rem;
+    }
 }
 
 @media (max-width: 460px){
@@ -409,6 +443,22 @@ h1,h2,h3,h4,p,span{
 
     .sections-1 p:nth-of-type(2){
         font-size: 1rem;
+    }
+
+    .sections-3 > h2{
+        font-size: 2rem;
+        letter-spacing: 0;
+        word-spacing: -.5rem;
+        top: 4.5rem;
+    }
+
+    .sections-3 > .projects{
+        gap: 10rem;
+    }
+
+    .project-card{
+        width: 130%;
+        height: 70vh;
     }
 }
 
@@ -431,5 +481,10 @@ h1,h2,h3,h4,p,span{
 
     .sections-1 p:nth-of-type(2){
         font-size: .9rem;
+    }
+
+    .sections-3 > h2{
+        font-size: 1.5rem;
+        word-spacing: 0;
     }
 }
