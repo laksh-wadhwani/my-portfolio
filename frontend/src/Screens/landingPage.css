@@ -108,6 +108,7 @@ h1,h2,h3,h4,p,span{
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -279,6 +280,15 @@ h1,h2,h3,h4,p,span{
     .sections-1 p:nth-of-type(2){
         font-size: 1.25rem;
     }
+
+    .skills{
+        gap: 1.5rem;
+        justify-content: space-evenly;
+    }
+
+    .skills > div{
+        width: 16rem;
+    }
 }
 
 
@@ -302,15 +312,34 @@ h1,h2,h3,h4,p,span{
     .sections-1 p:nth-of-type(2){
         font-size: 1rem;
     }
+
+    .skills > div{
+        width: 15rem;
+    }
+}
+
+@media (max-width: 760px){
+    .skills > div{
+        width: 14.3rem;
+    }
 }
 
 @media (max-width: 720px){
+
+    .section{
+        width: 90%;
+    }
+
     .sections-1 p:nth-of-type(1){
         font-size: 1.8rem;
     }
 
     .sections-1 p:nth-of-type(2){
         font-size: 0.9rem;
+    }
+
+    .skills > div{
+        width: 13.4rem;
     }
 }
 
@@ -322,10 +351,6 @@ h1,h2,h3,h4,p,span{
 
     .hero-section > h1{
         font-size: 3rem;
-    }
-
-    .section{
-        width: 90%;
     }
 
     .sections-1 {
@@ -345,6 +370,10 @@ h1,h2,h3,h4,p,span{
     .sections-1 p:nth-of-type(2){
         font-size: 1.2rem;
     }
+
+    .skills > div{
+        width: 16rem;
+    }
 }
 
 @media (max-width: 550px){
@@ -356,6 +385,13 @@ h1,h2,h3,h4,p,span{
         font-size: small;
     }
 
+    .sections-2 > div > h2{
+        font-size: large;
+    }
+
+    .sections-2 > div > p{
+        font-size: smaller;
+    }
 }
 
 @media (max-width: 460px){
