@@ -7,9 +7,8 @@
     flex-wrap: wrap;
     position: fixed;
     top: 1.25rem;
-    left: 9.5rem;
     z-index: 1000;
-    padding: 0 1rem;
+    flex-wrap: wrap;
 }
 
 .navbar div {
