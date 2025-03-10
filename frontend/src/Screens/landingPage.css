@@ -54,6 +54,7 @@ h1,h2,h3,h4,p,span{
 
 .hero-section>p{
     font-size: x-large;
+    font-weight: 400;
 }
 
 .section{
