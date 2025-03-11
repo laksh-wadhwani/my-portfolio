@@ -1,34 +1,37 @@
 import React from "react";
 import "./project.css";
+import { useLocation } from "react-router";
 
 const Project = () => {
+
+    const location = useLocation();
+    const { projectDetails } = location.state || {}
+
     return(
         <React.Fragment>
             <div className="main-box">
                 <div className="section project-section">
                     <div className="project-information">
                         <div className="name-site">
-                            <h1>FitClub Connect</h1>
+                            <h1>{projectDetails.projectName}</h1>
                             <button>
-                                <img src="./next.svg" alt="button" />
+                                <img src="../next.svg" alt="button" />
                             </button>
                         </div>
                         <div className="project-description">
-                            <p>Relo embarked on a journey of launching a new product, and my role was to crafting an impactful user-focused website in close collaboration with the sales team.</p>
+                            <p>{projectDetails.projectDescription}</p>
                         </div>
                         <div className="tech-stack">
-                            <button>ReactJS</button>
-                            <button>MongoDB</button>
-                            <button>Express JS</button>
-                            <button>Node JS</button>
+                            {projectDetails.techStack.map(tech => (
+                                <button>{tech}</button>
+                            ))}
                         </div>
                     </div>
                 </div>
                 <div className="project-display">
-                    <img src="./sahil.png" alt="" />
-                    <img src="./sahil.png" alt="" />
-                    <img src="./sahil.png" alt="" />
-                    <img src="./sahil.png" alt="" />
+                    {projectDetails.projectImages.map(images => (
+                        <img src={`http://localhost:9001/ProjectImages/${images}`} alt="" />
+                    ))}
                 </div>
             </div>
         </React.Fragment>

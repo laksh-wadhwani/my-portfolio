@@ -4,7 +4,6 @@ const ProjectTable = require("../Models/Project");
 const ProjectUpload = async(request, response) => {
     const {projectName, projectDescription, projectURL, techStack} = request.body;
     const projectImages = request.files.map(file => file.filename)
-    console.log(techStack)
     const newProjectEntry = new ProjectTable({projectName,projectDescription,projectURL,projectImages, techStack})
     const projectCheck = await ProjectTable.findOne({projectName})
 
@@ -21,8 +20,15 @@ const ProjectUpload = async(request, response) => {
     }
 }
 
-const Checking = async(request, response) => {
-    console.log("Server is running")
+const GetProjectData = async(request, response) => {
+    try{
+        const data = await ProjectTable.find()
+        return response.send(data)
+    }
+    catch(error){
+        console.log(error)
+        response.send({message: "Internal Server Error"})
+    }
 }
 
-module.exports = {ProjectUpload, Checking}
+module.exports = {ProjectUpload, GetProjectData}

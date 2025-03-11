@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./landingPage.css";
 import { Link, useNavigate } from "react-router";
+import axios from "axios";
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
 import { TextPlugin } from "gsap/all";
@@ -13,7 +14,21 @@ gsap.registerPlugin(TextPlugin)
 
 const LandingPage = () => {
 
+  const [projectData, setData] = useState([])
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get("http://localhost:9001/Admin/GetProjectData")
+    .then(response => setData(response.data))
+  },[])
+
+  const handleProjectClick = projectDetails => {
+    navigate(
+      `/Project/${projectDetails._id}`,
+      {state: {projectDetails}}
+    )
+  }
   
   useGSAP(() => {
 
@@ -141,45 +156,17 @@ const LandingPage = () => {
         <div className="section sections-3">
           <h2>Latest Work</h2>
           <div className="projects">
-            <div className="project-card" onClick={() => navigate("/Project")}>
+            {projectData.map(project => (
+                 <div key={project._id} className="project-card">
                   <div>
-                    <span>FitClub Connect</span>
+                    <span>{project.projectName}</span>
                     <button>
-                      <img src="./next.svg" alt="button" />
+                      <img src="./next.svg" alt="button" onClick={() => handleProjectClick(project)}/>
                     </button>
                   </div>
-                  <img src="./sahil.png" alt="Project" />
-              </div>
-
-              <div className="project-card">
-              <div>
-                <span>FitClub Connect</span>
-                <button>
-                  <img src="./next.svg" alt="button" />
-                </button>
-              </div>
-              <img src="./sahil.png" alt="Project" />
-            </div>
-
-            <div className="project-card">
-              <div>
-                <span>FitClub Connect</span>
-                <button>
-                  <img src="./next.svg" alt="button" />
-                </button>
-              </div>
-              <img src="./sahil.png" alt="Project" />
-            </div>
-
-            <div className="project-card">
-              <div>
-                <span>FitClub Connect</span>
-                <button>
-                  <img src="./next.svg" alt="button" />
-                </button>
-              </div>
-              <img src="./sahil.png" alt="Project" />
-            </div>
+                  <img src={`http://localhost:9001/ProjectImages/${project.projectImages[0]}`} alt="Project" />
+                </div>
+            ))}
           </div>
         </div>
         <div className="section sections-4">

@@ -49,7 +49,7 @@
     cursor: pointer;
 }
 
-.navbar > button{
+.contact-btn{
     padding: .5rem;
     background-color: transparent;
     border: 1.5px solid white;
@@ -60,16 +60,16 @@
     transition: all 0.5s ease-in-out;
 }
 
-.navbar > button:hover{
+.contact-btn:hover{
     transform: scale(1.05);
     border-color: #DAC5A7;
 }
 
-.navbar > button:hover img{
+.contact-btn:hover img{
     filter: none;
 }
 
-.navbar > button > img{
+.contact-btn > img{
     filter: grayscale(100%) brightness(100%);
     transition: all 0.5s ease;
 }

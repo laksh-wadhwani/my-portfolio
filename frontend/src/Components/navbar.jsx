@@ -2,6 +2,7 @@ import React from "react";
 import "./navbar.css"
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Link } from "react-router";
 
 const Navbar = () => {
 
@@ -30,10 +31,10 @@ const Navbar = () => {
         <React.Fragment>
             <div className="navbar">
                 <div className="logo-project">
-                    <img src="./nav_picture.jpg" alt="my logo" onClick={handleImage}/>
+                    <img src="../nav_picture.jpg" alt="my logo" onClick={handleImage}/>
                     <span onClick={handleProjects}>Projects</span>
                 </div>
-                <button><img src="./message.svg" alt="contact button" /></button>
+                <Link to="https://wa.me/923072426590"><button className="contact-btn"><img src="../message.svg" alt="contact button" /></button></Link>
             </div>
         </React.Fragment>
     )

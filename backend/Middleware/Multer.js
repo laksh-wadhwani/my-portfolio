@@ -12,4 +12,4 @@ const projectStorage = multer.diskStorage({
 
 const UploadProjectImage = multer({ storage: projectStorage });
 
-module.exports = UploadProjectImage;
+module.exports = UploadProjectImage
