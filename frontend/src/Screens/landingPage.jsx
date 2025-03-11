@@ -19,7 +19,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://my-portfolio-backend-ten.vercel.app/Admin/GetProjectData")
+    axios.get("http://localhost:9001/Admin/GetProjectData")
     .then(response => setData(response.data))
   },[])
 
@@ -164,7 +164,7 @@ const LandingPage = () => {
                       <img src="./next.svg" alt="button" onClick={() => handleProjectClick(project)}/>
                     </button>
                   </div>
-                  <img src={`https://my-portfolio-backend-ten.vercel.app/ProjectImages/${project.projectImages[0]}`} alt="Project" />
+                  <img src={`http://localhost:9001/ProjectImages/${project.projectImages[0]}`} alt="Project" />
                 </div>
             ))}
           </div>
