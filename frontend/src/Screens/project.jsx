@@ -30,7 +30,7 @@ const Project = () => {
                 </div>
                 <div className="project-display">
                     {projectDetails.projectImages.map(images => (
-                        <img src={`http://localhost:9001/ProjectImages/${images}`} alt="" />
+                        <img src={`https://my-portfolio-backend-ten.vercel.app/ProjectImages/${images}`} alt="" />
                     ))}
                 </div>
             </div>
