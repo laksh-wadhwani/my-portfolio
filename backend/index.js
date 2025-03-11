@@ -13,7 +13,7 @@ dotenv.config();
 
 mongoose.connect(process.env.DB_URL, {})
 .then(() => {
-    app.listen("https://my-portfolio-backend-ten.vercel.app", () => {
+    app.listen(process.env.PORT, () => {
         console.log("Server is connected and connected to MongoDB")
     })
 })
