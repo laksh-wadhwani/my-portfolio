@@ -11,9 +11,9 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static('uploads'))
 dotenv.config();
 
-mongoose.connect("https://my-portfolio-backend-ten.vercel.app", {})
+mongoose.connect(process.env.DB_URL, {})
 .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen("https://my-portfolio-backend-ten.vercel.app", () => {
         console.log("Server is connected and connected to MongoDB")
     })
 })
