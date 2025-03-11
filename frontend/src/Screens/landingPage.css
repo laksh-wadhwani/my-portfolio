@@ -245,13 +245,13 @@ h1,h2,h3,h4,p,span{
     gap: 0.3rem;
 }
 
-.contact > img{
+.contact-img{
     width: 2.5rem;
     height: 2.5rem;
     transition: all 0.5s ease;
 }
 
-.contact > img:hover{
+.contact-img:hover{
     transform: scale(1.05);
 }
 
@@ -517,7 +517,7 @@ h1,h2,h3,h4,p,span{
         font-size: 1.5rem;
     }
 
-    .contact > img{
+    .contact-img{
         width: 2rem;
         height: 2rem;
     }

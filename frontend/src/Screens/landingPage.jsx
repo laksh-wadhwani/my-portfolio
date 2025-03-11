@@ -1,6 +1,6 @@
 import React from "react";
 import "./landingPage.css";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
 import { TextPlugin } from "gsap/all";
@@ -185,10 +185,10 @@ const LandingPage = () => {
         <div className="section sections-4">
             <span>get in touch</span>
             <div className="contact">
-              <img src="./mail.svg" alt="Mail"/>
-              <img src="./linkedin.svg" alt="Mail"/>
-              <img src="./github.svg" alt="Mail"/>
-              <img src="./whatsapp.svg" alt="Mail"/>
+              <Link to="mailto:laksh.wadhwani55@gmail.com" style={{all:"inherit"}}><img className="contact-img" src="./mail.svg" alt="Mail"/></Link>
+              <Link to="https://www.linkedin.com/in/lakshwadhwani/" style={{all:"inherit"}}><img className="contact-img" src="./linkedin.svg" alt="Mail"/></Link>
+              <img className="contact-img" src="./github.svg" alt="Mail"/>
+              <Link to="https://wa.me/923072426590" style={{all:"inherit"}}><img className="contact-img" src="./whatsapp.svg" alt="Mail"/></Link>
             </div>
         </div>
       </div>
