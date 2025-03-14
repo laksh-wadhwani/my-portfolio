@@ -21,5 +21,9 @@ mongoose.connect(process.env.DB_URL, {})
     console.log("Unable to connect server and/or MongoDB" +error)
 })
 
+app.get("/", (req, res) => {
+    res.json("Hello")
+})
+
 const ProjectRouter = require("./Routes/ProjectRoutes");
 app.use("/Admin", ProjectRouter)
