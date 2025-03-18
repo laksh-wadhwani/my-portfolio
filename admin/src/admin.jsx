@@ -38,7 +38,7 @@ const Admin = () => {
             }
         });
         for(let i=0; i<projectImages.length; i++) ProjectData.append("projectImages", projectImages[i])
-        axios.post("https://my-portfolio-backend-rouge-kappa.vercel.app/Admin/ProjectUpload", ProjectData)
+        axios.post("http://localhost:9001/Admin/ProjectUpload", ProjectData)
         .then(response => { alert(response.data.message) })
         .catch(error => console.log(error))
         console.log(Array.from(ProjectData.entries()));
