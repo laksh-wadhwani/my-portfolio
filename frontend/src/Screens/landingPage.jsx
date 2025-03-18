@@ -164,7 +164,8 @@ const LandingPage = () => {
                       <img src="./next.svg" alt="button" onClick={() => handleProjectClick(project)}/>
                     </button>
                   </div>
-                  <img src={`https://my-portfolio-backend-rouge-kappa.vercel.app/ProjectImages/${project.projectImages[0]}`} alt="Project" />
+                  {console.log(projectData)}
+                  <img src={`${project.images[5]}`} alt="Project" />
                 </div>
             ))}
           </div>

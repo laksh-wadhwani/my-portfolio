@@ -29,8 +29,8 @@ const Project = () => {
                     </div>
                 </div>
                 <div className="project-display">
-                    {projectDetails.projectImages.map(images => (
-                        <img src={`https://my-portfolio-backend-rouge-kappa.vercel.app/ProjectImages/${images}`} alt="" />
+                    {projectDetails.images.map(images => (
+                        <img src={`${images}`} alt="" />
                     ))}
                 </div>
             </div>
