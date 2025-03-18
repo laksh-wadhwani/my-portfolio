@@ -5,7 +5,7 @@ const ProjectSchema = new mongoose.Schema({
     projectDescription: String,
     projectURL: String,
     techStack: [{type: String}],
-    projectImages: [{type: String}],
+    images: [{type: String}]
 })
 
 const ProjectTable = new mongoose.model("ProjectSchema", ProjectSchema);
