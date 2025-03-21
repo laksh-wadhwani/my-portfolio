@@ -1,7 +1,7 @@
 import React from "react";
 import "./project.css";
-import { useLocation } from "react-router";
-import { Link } from "@react-navigation/native";
+import { useLocation, Link } from "react-router";
+
 
 const Project = () => {
 
