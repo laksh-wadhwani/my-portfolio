@@ -175,7 +175,7 @@ const LandingPage = () => {
             <div className="contact">
               <Link to="mailto:laksh.wadhwani55@gmail.com" style={{all:"inherit"}}><img className="contact-img" src="./mail.svg" alt="Mail"/></Link>
               <Link to="https://www.linkedin.com/in/lakshwadhwani/" style={{all:"inherit"}}><img className="contact-img" src="./linkedin.svg" alt="Mail"/></Link>
-              <img className="contact-img" src="./github.svg" alt="Mail"/>
+              <Link to="https://github.com/laksh-wadhwani" style={{all:"inherit"}}><img className="contact-img" src="./github.svg" alt="Mail"/></Link>
               <Link to="https://wa.me/923072426590" style={{all:"inherit"}}><img className="contact-img" src="./whatsapp.svg" alt="Mail"/></Link>
             </div>
         </div>
