@@ -19,7 +19,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://my-portfolio-pi-sepia-64.vercel.app//Admin/GetProjectData")
+    axios.get("https://my-portfolio-backend-weld-tau.vercel.app/Admin/GetProjectData")
     .then(response => setData(response.data))
   },[])
 
