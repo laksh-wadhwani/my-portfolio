@@ -5,11 +5,13 @@ import axios from "axios"
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
 import { BackendURL } from "../BackendContext";
+import Spinner from "../Components/LoadingSpinner";
 
 const Login = ({setToken}) => {
 
   const API = BackendURL()
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
   const [user, setUser] = useState({
     email: "",
     password: ""
@@ -23,6 +25,7 @@ const Login = ({setToken}) => {
   }
 
   const Login = () => {
+    setLoading(true)
     axios.post(`${API}/admin/auth/login`, user)
     .then(response => {
       sessionStorage.setItem("token", response.data.token)
@@ -30,7 +33,10 @@ const Login = ({setToken}) => {
       toast.success(response.data.message)
       navigate("/admin")
     })
-    .catch(error => toast.error(error.response?.data?.error) || "Login Failed")
+    .catch(error => {
+      toast.error(error.response?.data?.message || "Login Failed")
+    })
+    .finally(() => setLoading(false))
   }
 
   return (
@@ -59,9 +65,9 @@ const Login = ({setToken}) => {
         </div>
 
         <button 
-          className="mt-4 py-3 rounded-lg bg-[#dac5a7] border text-black font-serif text-xl font-medium transition-all duration-500 ease-in-out hover:scale-102 hover:shadow-[0_10px_25px_rgba(218,197,167,0.4)] hover:bg-transparent hover:border-[#dac5a7] hover:text-white"
-          onClick={Login}>
-          Sign In
+          className="mt-4 py-3 rounded-lg bg-[#dac5a7] border text-black font-serif text-xl font-medium transition-all duration-500 ease-in-out hover:scale-102 hover:shadow-[0_10px_25px_rgba(218,197,167,0.4)] hover:bg-transparent hover:border-[#dac5a7] hover:text-white flex justify-center items-center"
+          onClick={Login} disabled={loading}>
+            <Spinner text={`Login`} loading={loading}/>
         </button>
       </div>
     </div>

@@ -1,5 +1,3 @@
-import React from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
 import InputField from "../Components/InputField";
 import InputFile from "../Components/InputFile";
 import { Upload } from 'lucide-react';
@@ -7,10 +5,13 @@ import { useState } from "react";
 import axios from "axios";
 import { BackendURL } from "../BackendContext";
 import { toast } from "sonner";
+import Spinner from "../Components/LoadingSpinner";
+import { useNavigate } from "react-router";
 
 const Admin = ({token}) => {
   
   const API = BackendURL();
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState({
     name: "",
@@ -43,6 +44,7 @@ const Admin = ({token}) => {
     axios.post(`${API}/admin/upload`, projectData, {headers: {Authorization:`Bearer ${token}`}})
     .then(response => {
       toast.success(response.data.message)
+      navigate("/")
     })
     .catch(error => {
       toast.error(error.response?.data?.message)
@@ -93,13 +95,7 @@ const Admin = ({token}) => {
         <button 
         className="w-fit px-4 py-3 bg-[#dac5a7] border shadow-xl flex gap-2 items-center text-black rounded-lg font-serif hover:scale-102 transition-all duration-500 ease-in-out hover:bg-transparent hover:border-[#dac5a7] hover:text-white"
         onClick={UploadProject} disabled={loading}>
-          {loading ? <div className="w-5 h-5 border-2 border-t-transparent border-black rounded-full animate-spin" /> 
-          :
-          <>
-          <Upload size={20}/> 
-          Upload
-          </>
-          }
+          <Spinner icon={Upload} text="Upload" loading={loading}/>
         </button>
       </div>
     </div>

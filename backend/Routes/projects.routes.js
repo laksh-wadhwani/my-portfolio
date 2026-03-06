@@ -1,6 +1,6 @@
 import express from "express";
 import verifyAdmin from "../Middleware/auth.middleware.js";
-import { GetProjectDetail, GetProjectsData, UploadProject } from "../Controller/projects.controller.js";
+import { DeleteProject, GetProjectDetail, GetProjectsData, UploadProject } from "../Controller/projects.controller.js";
 import UploadImage from "../Middleware/Multer.js";
 
 const router = express.Router();
@@ -12,5 +12,6 @@ router.post("/upload", UploadImage.fields([
 
 router.get("/get-projects-data", GetProjectsData)
 router.get("/get-project-data/:slug", GetProjectDetail)
+router.delete("/delete-project/:slug", verifyAdmin, DeleteProject)
 
 export default router

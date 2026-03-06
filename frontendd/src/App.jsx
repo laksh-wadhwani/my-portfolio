@@ -24,7 +24,7 @@ function App() {
       <Navbar token={token} setToken={setToken}/>
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/project/:slug" element={<Project />} />
+        <Route exact path="/project/:slug" element={<Project token={token}/>} />
         <Route exact path="/auth" element={<Login setToken={setToken} />} />
         <Route exact path="/admin" element={<ProtectedRoute><Admin token={token}/></ProtectedRoute>} />
       </Routes>

@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import IconButton from "../Components/IconButton";
 import { IoArrowRedoOutline } from "react-icons/io5";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaEdit, FaTrash } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import { BackendURL } from "../BackendContext";
+import Spinner from "../Components/LoadingSpinner";
+import { toast } from "sonner";
 
-const Project = () => {
-
+const Project = ({ token }) => {
   const API = BackendURL();
   const { slug } = useParams();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -29,6 +32,22 @@ const Project = () => {
       );
   }, [slug]);
 
+  const DeleteProject = (slug) => {
+    setLoading(true);
+    axios
+      .delete(`${API}/admin/delete-project/${slug}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        toast.success(response?.data?.message);
+        navigate(`/`);
+      })
+      .catch((error) => {
+        toast.error(error.response?.data?.message);
+      })
+      .finally(() => setLoading(false));
+  };
+
   return (
     <React.Fragment>
       <div className="w-full pb-20 flex flex-col items-center">
@@ -39,8 +58,16 @@ const Project = () => {
                 {data?.name}
               </h2>
               <div className="w-fit flex gap-4">
-                {data?.github_url? <IconButton icon={FaGithub} size={24} to={data?.github_url} />:null}
-                {data?.live_url? <IconButton icon={IoArrowRedoOutline} size={24} to={data?.live_url} />:null}
+                {data?.github_url ? (
+                  <IconButton icon={FaGithub} size={24} to={data?.github_url} />
+                ) : null}
+                {data?.live_url ? (
+                  <IconButton
+                    icon={IoArrowRedoOutline}
+                    size={24}
+                    to={data?.live_url}
+                  />
+                ) : null}
               </div>
             </div>
             <p className="font-seirf font-light text-xl text-justify leading-8 p-1">
@@ -80,6 +107,19 @@ const Project = () => {
               </Swiper>
             </div>
           </div>
+          {token ? (
+            <div className="flex justify-between items-center mt-4 px-8">
+              <button className="bg-green-500 px-6 py-2 rounded-lg font-serif text-lg cursor-pointer hover:scale-102 flex items-center gap-2">
+                <Spinner text="Edit" icon={FaEdit} loading={loading} />
+              </button>
+              <button
+                className="bg-red-500 px-6 py-2 rounded-lg font-serif text-lg cursor-pointer hover:scale-102 flex items-center gap-2"
+                onClick={() => DeleteProject(data.slug)}
+              >
+                <Spinner text="Delete" icon={FaTrash} loading={loading} />
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
