@@ -1,14 +1,13 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv")
-const cors = require("cors")
-const bodyParser = require("body-parser")
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors"
+import bodyParser from "body-parser";
 
 const app = express();
 app.use(cors())
 app.use(bodyParser.json())
 app.use(express.urlencoded({extended:true}))
-app.use(express.static('uploads'))
 dotenv.config();
 
 mongoose.connect(process.env.DB_URL, {})
@@ -22,9 +21,11 @@ mongoose.connect(process.env.DB_URL, {})
 })
 
 app.get("/", (req, res) => {
-    res.json("Hello")
+    res.json("Portfolio Server is Running")
 })
 
-const ProjectRouter = require("./Routes/ProjectRoutes");
-app.use("/Admin", ProjectRouter)
+import authRoutes from "./Routes/auth.routes.js"
+app.use("/admin/auth", authRoutes)
 
+import projectRoutes from "./Routes/projects.routes.js"
+app.use("/admin", projectRoutes)

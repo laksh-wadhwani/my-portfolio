@@ -1,4 +1,7 @@
-const cloudinary = require('cloudinary').v2;
+import {v2 as cloudinary} from "cloudinary"
+import dotenv from "dotenv";
+
+dotenv.config()
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -6,16 +9,15 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-const uploadToCloudinary = fileBuffer => {
+
+export const uploadToCloudinary = fileBuffer => {
   return new Promise((resolve, reject) => {
     cloudinary.uploader.upload_stream((error, result) => {
       if(error) { 
-        console.log("Cloudinary upload error: "+error) 
+        console.log("Cloudinary upload error: ",error) 
         reject(error) 
       }
       else resolve(result.secure_url)
     }).end(fileBuffer)
   })
 }
-
-module.exports = {uploadToCloudinary};
