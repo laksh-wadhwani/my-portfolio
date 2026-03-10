@@ -13,4 +13,4 @@ const LoadingSpinner = ({ icon: Icon, text = "", loading = false }) => {
   );
 };
 
-export default Spinner;
+export default LoadingSpinner;
