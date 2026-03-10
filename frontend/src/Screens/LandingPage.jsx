@@ -175,7 +175,7 @@ const LandingPage = () => {
       <div className="w-full flex flex-col gap-40 items-center pb-20">
         <div
           id="hero-section"
-          className="h-dvh w-full bg-[url(main-picture.png)] bg-position-[0] bg-no-repeat bg-[#1a1a1a] bg-blend-lighten flex flex-col justify-center items-center text-[#dac5a7] text-center"
+          className="h-dvh w-full bg-[url("/main-picture.png")] bg-position-[0] bg-no-repeat bg-[#1a1a1a] bg-blend-lighten flex flex-col justify-center items-center text-[#dac5a7] text-center"
         >
           <span className="text-5xl font-extralight font-garamod mb-3">
             Laksh
