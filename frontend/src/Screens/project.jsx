@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import IconButton from "../Components/IconButton";
+import IconButton from "../Components/IconButton.jsx";
 import { IoArrowRedoOutline } from "react-icons/io5";
 import { FaGithub, FaEdit, FaTrash } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
