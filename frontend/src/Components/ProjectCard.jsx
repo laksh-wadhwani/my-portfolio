@@ -3,7 +3,7 @@ import IconButton from "./IconButton";
 
 const ProjectCard = ({ title, image, link }) => {
   return (
-    <div className="w-full h-[85dvh] rounded-2xl shadow-2xl sticky top-1">
+    <div className="w-[70%] h-[85%] rounded-2xl shadow-2xl sticky top-24">
 
       {/* Top Bar */}
       <div className="w-full h-[15%] p-6 flex items-center justify-between bg-[#353535] rounded-t-2xl">

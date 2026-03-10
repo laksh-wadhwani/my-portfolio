@@ -1,183 +1,179 @@
 import React, { useEffect, useState } from "react";
-import "./landingPage.css";
-import { Link, useNavigate } from "react-router";
-import axios from "axios";
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
 import { TextPlugin } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaWordpressSimple } from "react-icons/fa";
+import { CodeXmlIcon, MonitorDot, ServerCog } from "lucide-react";
+import SkillCard from "../Components/SkillCard";
+import Linkedin from "../assets/linkedin.svg";
+import Github from "../assets/github.svg";
+import Whatsapp from "../assets/whatsapp.svg";
+import Mail from "../assets/mail.svg";
+import ProjectCard from "../Components/ProjectCard";
+import SocialButton from "../Components/SocialButton";
+import axios from "axios";
+import { BackendURL } from "../BackendContext";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin)
 
 
-
 const LandingPage = () => {
-
-  const [projectData, setData] = useState([])
-
-  const navigate = useNavigate();
+  const API = BackendURL();
+  const [projectsData, setProjectsData] = useState([]);
 
   useEffect(() => {
-    axios.get("https://my-portfolio-backend-weld-tau.vercel.app/Admin/GetProjectData")
-    .then(response => setData(response.data))
-  },[])
+    axios
+      .get(`${API}/admin/get-projects-data`)
+      .then((response) => setProjectsData(response.data))
+      .catch((error) =>
+        console.error("Getting error while fetching projects details: ", error),
+      );
+  }, [projectsData]);
 
-  const handleProjectClick = projectDetails => {
-    navigate(
-      `/Project/${projectDetails._id}`,
-      {state: {projectDetails}}
-    )
-  }
-  
   useGSAP(() => {
-
-    gsap.to(".sections-1", 
-      { willChange: "background", backgroundColor: "rgb(29,29,29)", opacity: 1, duration: 1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
-      scrollTrigger:{trigger: ".sections-1", scroller: "body", start: "top 50%", end: "top: 40%", scrub: 1, }
+    gsap.to("#about-section", 
+      { willChange: "background", backgroundColor: "#1d1d1d", opacity: 1, duration: 1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
+      scrollTrigger:{trigger: "#about-section", scroller: "body", start: "top 50%", end: "top: 40%", scrub: 1, }
     })
 
-    gsap.fromTo(".about", 
+    gsap.fromTo(".about-text", 
       {opacity: 0, x: "100%"},
       {opacity: 1, x: 0, stagger: 0.1, duration: 1, ease: "back.inOut",
-        scrollTrigger: {trigger: ".about", scroller: "body", start: "top 60%", end: "top 62%", scrub: 3}
+        scrollTrigger: {trigger: ".about-text", scroller: "body", start: "top 60%", end: "top 62%", scrub: 3}
       })
 
-    gsap.from(".sections-1 p:nth-of-type(2)",
+    gsap.from("#about-section p:nth-of-type(2)",
       {opacity: 0, x: 40, duration: 1,
-        scrollTrigger: {trigger: ".sections-1 p:nth-of-type(2)", scroller: "body", start: "top 50%", end: "top 65%", scrub: 3}
+        scrollTrigger: {trigger: "#about-section p:nth-of-type(2)", scroller: "body", start: "top 50%", end: "top 65%", scrub: 3}
       })
 
-    gsap.to(".sections-2", 
-      { willChange: "background", backgroundColor: "rgb(29,29,29)", opacity: 1, duration: 1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
-      scrollTrigger:{trigger: ".sections-2", scroller: "body", start: "top 55%", end: "top: 50%", scrub: 0.7}
+    gsap.to("#skill-section", 
+      { willChange: "background", backgroundColor: "#1d1d1d", opacity: 1, duration: 1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
+      scrollTrigger:{trigger: "#skill-section", scroller: "body", start: "top 55%", end: "top: 50%", scrub: 0.7}
     })
 
-    gsap.fromTo(".sections-2 > div > h2", 
+    gsap.fromTo("#skill-section > div > h2", 
       {opacity: 0, x: "-100%"},
       {opacity: 1, x: 0, stagger: 0.1, duration: 1, ease: "back.inOut",
-        scrollTrigger: {trigger: ".sections-2 > div > h2", scroller: "body", start: "top 60%", end: "top 62%", scrub: 5}
+        scrollTrigger: {trigger: "#skill-section > div > h2", scroller: "body", start: "top 60%", end: "top 62%", scrub: 5}
       })
-    
-    gsap.from(".sections-2 > div > p", {
+
+    gsap.from("#skill-section > div > p", {
       opacity: 0, y: 30, duration: 1,
-      scrollTrigger: {trigger: ".sections-2 > div > p", scroller: "body", start: "top 55%", end: "top 60%", scrub: 2}
+      scrollTrigger: {trigger: "#skill-section > div > p", scroller: "body", start: "top 55%", end: "top 60%", scrub: 2}
     })
 
-    gsap.from(".skills", 
+    gsap.from("#skills", 
       {opacity: 0, y: 100, duration: 2,
-        scrollTrigger: {trigger: ".skills", scroller: "body", start: "top 70%", end: "top 75%", scrub: 5,}
+        scrollTrigger: {trigger: "#skills", scroller: "body", start: "top 70%", end: "top 75%", scrub: 5,}
       })
 
-    gsap.to(".sections-3",{
-      willChange: "background", backgroundColor: "rgb(29,29,29)", opacity: 1, duration: 1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
-      scrollTrigger:{trigger: ".sections-3", scroller: "body", start: "top 50%", end: "top: 40%", scrub: 1}
+
+    gsap.to("#projects-section",{
+      willChange: "background", backgroundColor: "#1d1d1d", opacity: 1, duration: 1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
+      scrollTrigger:{trigger: "#projects-section", scroller: "body", start: "top 50%", end: "top: 40%", scrub: 1}
     })
 
-    gsap.to(".sections-4",{
-      willChange: "background", backgroundColor: "rgb(29,29,29)", opacity: 1, duration: 1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
-      scrollTrigger:{trigger: ".sections-4", scroller: "body", start: "top 50%", end: "top: 40%", scrub: 1}
+    gsap.to("#contact-section",{
+      willChange: "background", backgroundColor: "#1d1d1d", opacity: 1, duration: 1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
+      scrollTrigger:{trigger: "#contact-section", scroller: "body", start: "top 50%", end: "top: 40%", scrub: 1}
     })
   })
-  
+
   return (
     <React.Fragment>
-      <div className="main-box">
-        <div className="hero-section">
-          <span>Laksh</span>
-          <h1>Full Stack Dev.</h1>
-          <p>
-            Elevating digital
-            experiences through code. Explore my portfolio to see
-            <br />
-             innovation in action.
+      <div className="w-full flex flex-col gap-40 items-center pb-20">
+        <div id="hero-section" className="h-dvh w-full bg-[url(main-picture.png)] bg-position-[0] bg-no-repeat bg-[#1a1a1a] bg-blend-lighten flex flex-col justify-center items-center text-[#dac5a7] text-center">
+          <span className="text-5xl font-extralight font-garamod mb-3">
+            Laksh
+          </span>
+          <h1 className="text-8xl font-bold font-atkinson mb-4">
+            Full Stack Dev.
+          </h1>
+          <p className="text-2xl font-atkinson">
+            Elevating digital experiences through code. Explore my portfolio to
+            see <br /> innovation in action.
           </p>
         </div>
-        <div className="section sections-1">
-          <p>{"Hi, I'm Laksh Wadhwani, a designer and full-stack developer based in Karachi.".split("").map(char =>(
-            <span className="about">{char}</span>
+
+        <div id="about-section" className="w-[80%] flex items-center gap-16 py-24 px-12 shadow-2xl font-serif rounded-t-4xl box-border">
+          <p className="w-[50%] text-4xl font-semibold leading-normal tracking-tight">{"Hi, I'm Laksh Wadhwani, a designer and full-stack developer based in Karachi.".split("").map(char => (
+            <span className="about-text">{char}</span>
           ))}</p>
-          <p>
+          <p className="w-[50%] text-xl leading-normal tracking-wide">
             With expertise in both front-end and back-end development, I create
             engaging and innovative user experiences by translating creative
             designs into fully functional websites and applications.
           </p>
         </div>
-        <div className="section sections-2">
-          <div>
-              {"i shape the perfect solutions".split("").map(char => (
-                <h2>{char}</h2>
-              ))}
-            <p>
+
+        <div id="skill-section" className="w-[80%] rounded-md box-border p-12 flex flex-col items-center gap-8">
+          <div className="font-serif">
+            {"i shape the perfect solutions".split("").map(char => (
+              <h2 className="uppercase text-2xl font-medium text-[#dac5a7] tracking-wide inline">
+              {char}
+            </h2>
+            ))}
+            <p className="text-base tracking-tight">
               I build fast, reliable, and scalable websites to meet your needs.
               Like a steady stream, I handle challenges smoothly and deliver
               efficient digital experiences to help your business grow
             </p>
           </div>
-          <div className="skills">
-              <div>
-                <img src="./ui.svg" alt="Skills Logo" />
-                <span>
-                  UI/UX
-                  <br />
-                  Designer
-                </span>
-              </div>
 
-              <div>
-                <img src="./backend.svg" alt="Skills Logo" />
-                <span>
-                  Backend
-                  <br />
-                  Developer
-                </span>
-              </div>
-
-              <div>
-                <img src="./frontend.svg" alt="Skills Logo" />
-                <span>
-                  Frontend
-                  <br />
-                  Developer
-                </span>
-              </div>
-
-              <div>
-                <img src="./wordpress.svg" alt="Skills Logo" />
-                <span>
-                  Wordpress
-                  <br />
-                  Developer
-                </span>
-              </div>
-             
+          <div id="skills" className="w-full grid grid-cols-4 gap-8">
+            <SkillCard icon={MonitorDot} title={`UI/UX\nDesigner`} />
+            <SkillCard icon={ServerCog} title={"Backend\nDeveloper"} />
+            <SkillCard icon={CodeXmlIcon} title={"Frontend\nDeveloper"} />
+            <SkillCard icon={FaWordpressSimple} title={"Wordpress\nDeveloper"}/>
           </div>
         </div>
-        <div className="section sections-3">
-          <h2>Latest Work</h2>
-          <div className="projects">
-            {projectData.map(project => (
-                 <div key={project._id} className="project-card">
-                  <div>
-                    <span>{project.projectName}</span>
-                    <button>
-                      <img src="./next.svg" alt="button" onClick={() => handleProjectClick(project)}/>
-                    </button>
-                  </div>
-                  {console.log(projectData)}
-                  <img src={`${project.images[5]}`} alt="Project" />
-                </div>
-            ))}
-          </div>
+
+        <div id="projects-section" className="w-[80%] h-dvh bg-[#1d1d1d] rounded-md p-12 shadow-2xl flex flex-col items-center gap-8 box-border overflow-y-auto no-scrollbar">
+          <h2
+            className="font-serif text-8xl font-semibold uppercase text-shadow-lg sticky top-0"
+            style={{ wordSpacing: "-1rem", letterSpacing: "-.3rem" }}
+          >
+            Latest Work
+          </h2>
+          {projectsData?.map((project) => (
+            <ProjectCard
+              key={project._id}
+              title={project.name}
+              image={project.thumbnail}
+              link={project.slug}
+            />
+          ))}
         </div>
-        <div className="section sections-4">
-            <span>get in touch</span>
-            <div className="contact">
-              <Link to="mailto:laksh.wadhwani55@gmail.com" style={{all:"inherit"}}><img className="contact-img" src="./mail.svg" alt="Mail"/></Link>
-              <Link to="https://www.linkedin.com/in/lakshwadhwani/" style={{all:"inherit"}}><img className="contact-img" src="./linkedin.svg" alt="Mail"/></Link>
-              <Link to="https://github.com/laksh-wadhwani" style={{all:"inherit"}}><img className="contact-img" src="./github.svg" alt="Mail"/></Link>
-              <Link to="https://wa.me/923072426590" style={{all:"inherit"}}><img className="contact-img" src="./whatsapp.svg" alt="Mail"/></Link>
-            </div>
+
+        <div id="contact-section" className="w-[80%] py-24 px-12 box-border rounded-b-4xl bg-[#1d1d1d] shadow-2xl flex flex-col items-center justify-center">
+          <span className="font-serif text-8xl font-bold tracking-tight uppercase">
+            get in touch
+          </span>
+          <div className="flex gap-1">
+            <SocialButton
+              icon={Mail}
+              alt="Mail Icon"
+              href="mailto:laksh.wadhwani55@gmail.com"
+            />
+            <SocialButton
+              icon={Linkedin}
+              alt="LinkedIn Icon"
+              href="https://www.linkedin.com/in/lakshwadhwani/"
+            />
+            <SocialButton
+              icon={Github}
+              alt="Github Icon"
+              href="https://github.com/laksh-wadhwani"
+            />
+            <SocialButton
+              icon={Whatsapp}
+              alt="Whatsapp Icon"
+              href="https://wa.me/923072426590"
+            />
+          </div>
         </div>
       </div>
     </React.Fragment>
