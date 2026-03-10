@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { Toaster } from "sonner";
-import Navbar from "./Components/navbar";
-import LandingPage from "./Screens/landingpage";
-import Project from "./Screens/Project";
-import Login from "./Screens/auth";
-import Admin from "./Screens/Admin";
+import Navbar from "./Components/navbar.jsx";
+import LandingPage from "./Screens/landingpage.jsx";
+import Project from "./Screens/Project.jsx";
+import Login from "./Screens/auth/jsx";
+import Admin from "./Screens/Admin.jsx";
 import { BackendProvider } from "./BackendContext";
 import { useEffect, useState } from "react";
-import ProtectedRoute from "./Components/ProtectedRoute";
+import ProtectedRoute from "./Components/ProtectedRoute.jsx";
 
 function App() {
 
