@@ -9,8 +9,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
-import { BackendURL } from "../BackendContext";
-import Spinner from "../Components/LoadingSpinner";
+import { BackendURL } from "../BackendContext.jsx";
+import Spinner from "../Components/LoadingSpinner.jsx";
 import { toast } from "sonner";
 
 const Project = ({ token }) => {

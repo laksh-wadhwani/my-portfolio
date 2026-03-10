@@ -4,7 +4,7 @@ import { LogOut } from "lucide-react";
 import NavPicture from "../assets/nav-picture.jpeg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import IconButton from "./IconButton";
+import IconButton from "./IconButton.jsx";
 import { useNavigate } from "react-router";
 
 const Navbar = ({ token, setToken }) => {

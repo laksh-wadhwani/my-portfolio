@@ -3,7 +3,7 @@ import { Toaster } from "sonner";
 import Navbar from "./Components/navbar.jsx";
 import LandingPage from "./Screens/landingpage.jsx";
 import Project from "./Screens/Project.jsx";
-import Login from "./Screens/auth/jsx";
+import Login from "./Screens/auth.jsx";
 import Admin from "./Screens/Admin.jsx";
 import { BackendProvider } from "./BackendContext";
 import { useEffect, useState } from "react";

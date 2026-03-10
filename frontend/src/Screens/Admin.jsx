@@ -1,11 +1,11 @@
-import InputField from "../Components/InputField";
-import InputFile from "../Components/InputFile";
+import InputField from "../Components/InputField.jsx";
+import InputFile from "../Components/InputFile.jsx";
 import { Upload } from 'lucide-react';
 import { useState } from "react";
 import axios from "axios";
-import { BackendURL } from "../BackendContext";
+import { BackendURL } from "../BackendContext.jsx";
 import { toast } from "sonner";
-import Spinner from "../Components/LoadingSpinner";
+import Spinner from "../Components/LoadingSpinner.jsx";
 import { useNavigate } from "react-router";
 
 const Admin = ({token}) => {

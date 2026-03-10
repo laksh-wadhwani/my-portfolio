@@ -5,15 +5,15 @@ import { TextPlugin } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaWordpressSimple } from "react-icons/fa";
 import { CodeXmlIcon, MonitorDot, ServerCog } from "lucide-react";
-import SkillCard from "../Components/SkillCard";
+import SkillCard from "../Components/SkillCard.jsx";
 import Linkedin from "../assets/linkedin.svg";
 import Github from "../assets/github.svg";
 import Whatsapp from "../assets/whatsapp.svg";
 import Mail from "../assets/mail.svg";
-import ProjectCard from "../Components/ProjectCard";
-import SocialButton from "../Components/SocialButton";
+import ProjectCard from "../Components/ProjectCard.jsx";
+import SocialButton from "../Components/SocialButton.jsx";
 import axios from "axios";
-import { BackendURL } from "../BackendContext";
+import { BackendURL } from "../BackendContext.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin)

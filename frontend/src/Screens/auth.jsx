@@ -1,11 +1,10 @@
-import React from "react";
-import InputField from "../Components/InputField";
+import InputField from "../Components/InputField.jsx";
 import { useState } from "react";
 import axios from "axios"
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
-import { BackendURL } from "../BackendContext";
-import Spinner from "../Components/LoadingSpinner";
+import { BackendURL } from "../BackendContext.jsx";
+import Spinner from "../Components/LoadingSpinner.jsx";
 
 const Login = ({setToken}) => {
 
