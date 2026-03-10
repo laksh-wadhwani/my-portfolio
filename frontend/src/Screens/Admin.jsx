@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { BackendURL } from "../BackendContext.jsx";
 import { toast } from "sonner";
-import Spinner from "../Components/LoadingSpinner.jsx";
+import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import { useNavigate } from "react-router";
 
 const Admin = ({token}) => {
@@ -95,7 +95,7 @@ const Admin = ({token}) => {
         <button 
         className="w-fit px-4 py-3 bg-[#dac5a7] border shadow-xl flex gap-2 items-center text-black rounded-lg font-serif hover:scale-102 transition-all duration-500 ease-in-out hover:bg-transparent hover:border-[#dac5a7] hover:text-white"
         onClick={UploadProject} disabled={loading}>
-          <Spinner icon={Upload} text="Upload" loading={loading}/>
+          <LoadingSpinner icon={Upload} text="Upload" loading={loading}/>
         </button>
       </div>
     </div>

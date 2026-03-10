@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import { BackendURL } from "../BackendContext.jsx";
-import Spinner from "../Components/LoadingSpinner.jsx";
+import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import { toast } from "sonner";
 
 const Project = ({ token }) => {
@@ -110,13 +110,13 @@ const Project = ({ token }) => {
           {token ? (
             <div className="flex justify-between items-center mt-4 px-8">
               <button className="bg-green-500 px-6 py-2 rounded-lg font-serif text-lg cursor-pointer hover:scale-102 flex items-center gap-2">
-                <Spinner text="Edit" icon={FaEdit} loading={loading} />
+                <LoadingSpinner text="Edit" icon={FaEdit} loading={loading} />
               </button>
               <button
                 className="bg-red-500 px-6 py-2 rounded-lg font-serif text-lg cursor-pointer hover:scale-102 flex items-center gap-2"
                 onClick={() => DeleteProject(data.slug)}
               >
-                <Spinner text="Delete" icon={FaTrash} loading={loading} />
+                <LoadingSpinner text="Delete" icon={FaTrash} loading={loading} />
               </button>
             </div>
           ) : null}

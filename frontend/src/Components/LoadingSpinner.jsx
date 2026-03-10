@@ -1,4 +1,4 @@
-const Spinner = ({ icon: Icon, text = "", loading = false }) => {
+const LoadingSpinner = ({ icon: Icon, text = "", loading = false }) => {
   return (
     <div className="flex justify-center items-center cursor-pointer gap-2">
       {loading ? (

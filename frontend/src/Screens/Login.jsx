@@ -4,7 +4,7 @@ import axios from "axios"
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
 import { BackendURL } from "../BackendContext.jsx";
-import Spinner from "../Components/LoadingSpinner.jsx";
+import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 
 const Login = ({setToken}) => {
 
@@ -66,7 +66,7 @@ const Login = ({setToken}) => {
         <button 
           className="mt-4 py-3 rounded-lg bg-[#dac5a7] border text-black font-serif text-xl font-medium transition-all duration-500 ease-in-out hover:scale-102 hover:shadow-[0_10px_25px_rgba(218,197,167,0.4)] hover:bg-transparent hover:border-[#dac5a7] hover:text-white flex justify-center items-center"
           onClick={Login} disabled={loading}>
-            <Spinner text={`Login`} loading={loading}/>
+            <LoadingSpinner text={`Login`} loading={loading}/>
         </button>
       </div>
     </div>
