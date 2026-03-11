@@ -176,15 +176,13 @@ const LandingPage = () => {
         <div
           id="hero-section"
           style={{ backgroundImage: "url('/main-picture.png')" }}
-          className="h-dvh w-full bg-position-[0] bg-no-repeat bg-[#1a1a1a] bg-blend-lighten flex flex-col justify-center items-center text-[#dac5a7] text-center"
+          className="h-dvh w-full bg-cover md:bg-contain lg:bg-auto bg-position-[0] bg-no-repeat bg-[#1a1a1a] bg-blend-lighten flex flex-col justify-center items-center text-[#dac5a7] text-center"
         >
-          <span className="text-5xl font-extralight font-garamod mb-3">
-            Laksh
-          </span>
-          <h1 className="text-8xl font-bold font-atkinson mb-4">
+          <span className="text-2xl md:text-5xl lg:text-6xl font-extralight font-garamod">Laksh</span>
+          <h1 className="text-4xl md:text-7xl lg:text-8xl tracking-[-5px] md:tracking-none font-bold font-atkinson">
             Full Stack Dev.
           </h1>
-          <p className="text-2xl font-atkinson">
+          <p className="px-8 md:px-0 text-xs md:text-sm lg:text-lg font-atkinson">
             Elevating digital experiences through code. Explore my portfolio to
             see <br /> innovation in action.
           </p>
@@ -192,16 +190,16 @@ const LandingPage = () => {
 
         <div
           id="about-section"
-          className="w-[80%] flex items-center gap-16 py-24 px-12 shadow-2xl font-serif rounded-t-4xl box-border"
+          className="w-[80%] flex flex-col md:flex-row items-center gap-4 md:gap-16 p-8 md:py-24 md:px-12 shadow-2xl font-serif rounded-t-4xl box-border"
         >
-          <p className="w-[50%] text-4xl font-semibold leading-normal tracking-tight">
+          <p className="w-full md:w-[50%] text-2xl xl:text-4xl font-semibold leading-normal xl:tracking-tight">
             {"Hi, I'm Laksh Wadhwani, a designer and full-stack developer based in Karachi."
               .split("")
               .map((char) => (
                 <span className="about-text">{char}</span>
               ))}
           </p>
-          <p className="w-[50%] text-xl leading-normal tracking-wide">
+          <p className="w-full md:w-[50%] text-base xl:text-xl leading-normal xl:tracking-wide">
             With expertise in both front-end and back-end development, I create
             engaging and innovative user experiences by translating creative
             designs into fully functional websites and applications.
@@ -210,22 +208,22 @@ const LandingPage = () => {
 
         <div
           id="skill-section"
-          className="w-[80%] rounded-md box-border p-12 flex flex-col items-center gap-8"
+          className="w-[80%] rounded-md box-border p-8 md:p-12 flex flex-col items-center gap-8"
         >
           <div className="font-serif">
             {"i shape the perfect solutions".split("").map((char) => (
-              <h2 className="uppercase text-2xl font-medium text-[#dac5a7] tracking-wide inline">
+              <h2 className="uppercase text-xl md:text-2xl font-medium text-[#dac5a7] inline">
                 {char}
               </h2>
             ))}
-            <p className="text-base tracking-tight">
+            <p className="text-xs md:text-base md:tracking-tight">
               I build fast, reliable, and scalable websites to meet your needs.
               Like a steady stream, I handle challenges smoothly and deliver
               efficient digital experiences to help your business grow
             </p>
           </div>
 
-          <div id="skills" className="w-full grid grid-cols-4 gap-8">
+          <div id="skills" className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             <SkillCard icon={MonitorDot} title={`UI/UX\nDesigner`} />
             <SkillCard icon={ServerCog} title={"Backend\nDeveloper"} />
             <SkillCard icon={CodeXmlIcon} title={"Frontend\nDeveloper"} />
@@ -238,29 +236,29 @@ const LandingPage = () => {
 
         <div
           id="projects-section"
-          className="w-[80%] h-dvh bg-[#1d1d1d] rounded-md p-12 shadow-2xl flex flex-col items-center gap-8 box-border overflow-y-auto no-scrollbar"
+          className="w-[80%] h-[70dvh] md:h-dvh rounded-md p-8 md:p-12 shadow-2xl flex flex-col items-center box-border overflow-y-auto no-scrollbar"
         >
-          <h2
-            className="font-serif text-8xl font-semibold uppercase text-shadow-lg sticky top-0"
-            style={{ wordSpacing: "-1rem", letterSpacing: "-.3rem" }}
-          >
+          <h2 className="font-serif text-3xl md:text-6xl xl:text-8xl font-semibold uppercase text-shadow-lg sticky top-4 md:top-0 lg:tracking-[-.3rem] lg:[word-spacing: -1rem]">
             Latest Work
           </h2>
-          {projectsData?.map((project) => (
-            <ProjectCard
-              key={project._id}
-              title={project.name}
-              image={project.thumbnail}
-              link={project.slug}
-            />
-          ))}
+
+          <div className="w-full flex flex-col items-center gap-16">
+            {projectsData?.map((project) => (
+              <ProjectCard
+                key={project._id}
+                title={project.name}
+                image={project.thumbnail}
+                link={project.slug}
+              />
+            ))}
+          </div>
         </div>
 
         <div
           id="contact-section"
-          className="w-[80%] py-24 px-12 box-border rounded-b-4xl bg-[#1d1d1d] shadow-2xl flex flex-col items-center justify-center"
+          className="w-[80%] p-8 md:py-24 md:px-12 box-border rounded-b-4xl bg-[#1d1d1d] shadow-2xl flex flex-col items-center justify-center"
         >
-          <span className="font-serif text-8xl font-bold tracking-tight uppercase">
+          <span className="font-serif text-3xl md:text-6xl lg:text-7xl xl:text-8xl md:tracking-tight font-bold uppercase">
             get in touch
           </span>
           <div className="flex gap-1">
