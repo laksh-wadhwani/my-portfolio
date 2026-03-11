@@ -8,28 +8,36 @@ import { useEffect, useState } from "react";
 import ProtectedRoute from "./Components/ProtectedRoute.jsx";
 import LandingPage from "./Screens/LandingPage.jsx";
 import Navbar from "./Components/Navbar.jsx";
+import SplashScreen from "./Components/SplashScreen.jsx"; // 👈 import
 
 function App() {
 
-  const [token, setToken] = useState(null)
+  const [token, setToken] = useState(null);
+  const [splashDone, setSplashDone] = useState(false); // 👈 track splash state
 
   useEffect(() => {
-    const storedToken = sessionStorage.getItem("token")
-    if(storedToken) setToken(storedToken)
-  },[token])
+    const storedToken = sessionStorage.getItem("token");
+    if (storedToken) setToken(storedToken);
+  }, [token]);
 
   return (
     <BackendProvider>
-    <Router>
-      <Navbar token={token} setToken={setToken}/>
-      <Routes>
-        <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/project/:slug" element={<Project token={token}/>} />
-        <Route exact path="/auth" element={<Login setToken={setToken} />} />
-        <Route exact path="/admin" element={<ProtectedRoute><Admin token={token}/></ProtectedRoute>} />
-      </Routes>
-      <Toaster richColors expand={true} closeButton position="top-center" duration={2000}/>
-    </Router>
+
+      {!splashDone && (
+        <SplashScreen onComplete={() => setSplashDone(true)} />
+      )}
+
+      <Router>
+        <Navbar token={token} setToken={setToken} />
+        <Routes>
+          <Route exact path="/" element={<LandingPage />} />
+          <Route exact path="/project/:slug" element={<Project token={token} />} />
+          <Route exact path="/auth" element={<Login setToken={setToken} />} />
+          <Route exact path="/admin" element={<ProtectedRoute><Admin token={token} /></ProtectedRoute>} />
+        </Routes>
+        <Toaster richColors expand={true} closeButton position="top-center" duration={2000} />
+      </Router>
+
     </BackendProvider>
   );
 }
