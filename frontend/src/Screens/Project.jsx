@@ -51,29 +51,30 @@ const Project = ({ token }) => {
   return (
     <React.Fragment>
       <div className="w-full pb-20 flex flex-col items-center">
-        <div className="w-[80%] mt-32 py-12 px-20 rounded-md bg-[#1d1d1d] shadow-2xl flex flex-col gap-12">
+        <div className="w-[90%] md:w-[80%] mt-32 p-8 xl:py-12 xl:px-20 rounded-md bg-[#1d1d1d] shadow-2xl flex flex-col gap-12">
           <div className="w-full flex flex-col gap-2">
             <div className="w-full flex items-center justify-between">
-              <h2 className="font-serif font-bold text-5xl tracking-tight">
+              <h2 className="font-serif font-bold text-xl md:text-3xl xl:text-5xl md:tracking-tight">
                 {data?.name}
               </h2>
               <div className="w-fit flex gap-4">
                 {data?.github_url ? (
-                  <IconButton icon={FaGithub} size={24} to={data?.github_url} />
+                  <IconButton icon={FaGithub} size={24} to={data?.github_url} className="w-8 h-8 md:size-10" />
                 ) : null}
                 {data?.live_url ? (
                   <IconButton
                     icon={IoArrowRedoOutline}
                     size={24}
                     to={data?.live_url}
+                    className="w-8 h-8 md:size-10"
                   />
                 ) : null}
               </div>
             </div>
-            <p className="font-seirf font-light text-xl text-justify leading-8 p-1">
+            <p className="font-seirf font-light text-sm md:text-xl md:leading-8 md:p-1 text-justify">
               {data?.description}
             </p>
-            <div className="w-full flex gap-2">
+            <div className="w-full flex gap-1 flex-wrap">
               {data?.tech_stack.map((tech) => (
                 <span className="font-serif font-xs capitalize text-gray-300 border border-gray-500 py-1 px-3 rounded-full shadow-lg transiton-all duration-500 ease-in-out hover:bg-[#dac5a70d] hover:text-[#dac5a7] hover:scale-105">
                   {tech}
@@ -83,7 +84,7 @@ const Project = ({ token }) => {
           </div>
 
           <div className="flex flex-col gap-6">
-            <h4 className="font-serif text-4xl font-semibold">
+            <h4 className="font-serif text-xl md:text-3xl xl:text-4xl font-semibold">
               Screenshots of Project
             </h4>
             <div>
@@ -100,7 +101,7 @@ const Project = ({ token }) => {
                     <img
                       src={picture}
                       alt="Screenshot 1"
-                      className="w-full h-150 object-cover"
+                      className="w-full h-150 object-contain xl:object-cover"
                     />
                   </SwiperSlide>
                 ))}

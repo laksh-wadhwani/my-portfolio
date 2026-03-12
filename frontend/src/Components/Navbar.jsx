@@ -38,7 +38,7 @@ const Navbar = ({ token, setToken }) => {
     <React.Fragment>
       <div
         id="navbar"
-        className="w-[80%] h-fit flex justify-between mt-8 justify-self-center flex justify-between items-center fixed z-100"
+        className="w-full sm:w-[80%] px-11 sm:px-0  h-fit flex justify-between mt-8 justify-self-center flex justify-between items-center fixed z-100"
       >
         <div className="group flex items-center shadow-lg rounded-md bg-[#2b2b2b] overflow-hidden cursor-pointer transition-all duration-500 ease-in-out gap-3 p-2 w-14 hover:w-34">
           <button className="size-10 shrink-0 overflow-hidden bg-white text-black font-bold rounded-full text-2xl flex items-center justify-center cursor-pointer transition-all duration-500">
